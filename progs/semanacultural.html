@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana Cultural - Tercera Sección de San Pablo Huitzo</title>
+    <link rel="stylesheet" href="../css/css1.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .card h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .card .countdown {
+            font-size: 1.5em;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body style="background-color:  #473805;">
+    <header>
+        <div class="logo">
+            
+            <h1>HUITZO</h1>
+        </div>
+        <nav>
+            <li><a href="../index.html">INICIO</a></li>
+            <li><a href="progs/semanacultural.html">SEMANA CULTURAL</a></li>
+            <li><a href="#">DÍAS MAS IMPORTANTES</a></li>
+            <li><a href="#">HISTORIA</a></li>
+        </nav>
+        
+
+    </header>
+    <div class="card">
+        <h3> Participación del Taller de Canto </h3>
+        <p>Fecha: 1 de Septiembre, 2024</p>
+        <p>12:00hrs</p>
+        <div class="countdown" id="countdown1"></div>
+    </div>
+
+    <div class="card">
+        <h3> Presentación del Taller de Marimba</h3>
+        <p>Fecha: 2 de Septiembre, 2024</p>
+        <p>12:00hrs</p>
+        <div class="countdown" id="countdown2"></div>
+    </div>
+
+    <div class="card">
+        <h3> Presentación del Taller de Piano y Acrodanza</h3>
+        <p>Fecha: 3 de Septiembre, 2024</p>
+        <p>12:00hrs</p>
+        <div class="countdown" id="countdown3"></div>
+    </div>
+
+    <div class="card">
+        <h3>Participacion del Taller de Ensamble</h3>
+        <p>Fecha: 4 de Septiembre, 2024</p>
+        <p>12:00hrs</p>
+        <div class="countdown" id="countdown4"></div>
+    </div>
+
+    <div class="card">
+        <h3> Presentación final de la Semana Cultural</h3>
+        <p>Fecha: 5 de Septiembre, 2024</p>
+        <p>12:00hrs</p>
+        <div class="countdown" id="countdown5"></div>
+    </div>
+
+    <script>
+
+        // Función para inicializar el cronómetro
+        function initializeCountdown(elementId, eventDate) {
+            const countdownElement = document.getElementById(elementId);
+            const countDownDate = new Date(eventDate).getTime();
+
+            const countdownFunction = setInterval(function () {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                if (distance < 0) {
+                    clearInterval(countdownFunction);
+                    countdownElement.innerHTML = "¡El evento ha comenzado!";
+                }
+            }, 1000);
+        }
+
+        // Inicializar cronómetros para cada evento
+        initializeCountdown("countdown1", "Sep 1, 2024 12:00:00");
+        initializeCountdown("countdown2", "Sep 2, 2024 12:00:00");
+        initializeCountdown("countdown3", "Sep 3, 2024 12:00:00");
+        initializeCountdown("countdown4", "Sep 4, 2024 12:00:00");
+        initializeCountdown("countdown5", "Sep 5, 2024 12:00:00");
+    </script>
+</body>
+</html>

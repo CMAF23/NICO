@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    background-color: #473805;
 }
 header {
     background-color: #473805;
@@ -158,10 +159,12 @@ footer {
     margin: 0 auto;
     padding: 0px;
     box-sizing: border-box;
+   
 }
 .responsive-image {
     width: 100%;
     height: auto;
     display: block;
     max-width: 100%;
+    border-radius: 5%;
 }
